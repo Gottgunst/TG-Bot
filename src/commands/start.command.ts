@@ -1,4 +1,4 @@
-import { Markup, Telegraf } from 'telegraf';
+import { Telegraf } from 'telegraf';
 import { Command } from './command.class';
 import { IBotContext } from '../context/context.interface';
 
@@ -8,24 +8,9 @@ export class StartCommand extends Command {
   }
   handle(): void {
     this.bot.start((ctx) => {
-      const task = `⚠ ${ctx.message.text.slice(3)}`;
-      ctx.reply(
-        task,
-        Markup.inlineKeyboard([
-          Markup.button.callback('✅', 'done_task'),
-          Markup.button.callback('👥', 'instruct_task'),
-        ])
-      );
-    });
+      const welcome = `**Hello**`;
 
-    this.bot.action('done_task', (ctx) => {
-      ctx.session.taskComplete = true;
-      ctx.editMessageText(`Done`);
-    });
-
-    this.bot.action('instruct_task', (ctx) => {
-      ctx.session.taskComplete = true;
-      ctx.editMessageText('Well…');
+      ctx.reply(welcome, { parse_mode: 'MarkdownV2' });
     });
   }
 }
