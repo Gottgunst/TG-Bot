@@ -12,7 +12,6 @@
   "author": "GottGunst",
   "license": "ISC",
   "devDependencies": {
-    "@types/dotenv": "^8.2.0",
     "@types/node": "^20.10.6",
     "@typescript-eslint/eslint-plugin": "^6.16.0",
     "@typescript-eslint/parser": "^6.16.0",
